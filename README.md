@@ -1,7 +1,7 @@
 
 <html lang="en">
 <head>
-    <meta name="google-site-verification" content="u4ZZuKr8I06OdyTRj1P7O5dE0OD_EygN2n1N006tVqc" />
+    googlea34558058327d669.html
     <title>ख्रिस्त वाणी | Khrist Vani</title>
     <style>
         /* General Styles */
