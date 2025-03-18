@@ -1,8 +1,10 @@
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="google-site-verification" content="u4ZZuKr8I06OdyTRj1P7O5dE0OD_EygN2n1N006tVqc" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ख्रिस्त वाणी | Khrist Vani</title>
+    <meta name="google-site-verification" content="u4ZZuKr8I06OdyTRj1P7O5dE0OD_EygN2n1N006tVqc" />
     <style>
         /* General Styles */
         body {
@@ -14,6 +16,9 @@
             line-height: 1.6;
             transition: background-color 0.3s, color 0.3s;
         }
+
+        /* ... (rest of the existing styles remain unchanged) ... */
+
 
         :root {
             --bg-color: #f9f9f9;
