@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ख्रिस्त वाणी | Khrist Vani</title>
+    <meta name="google-site-verification" content="u4ZZuKr8I06OdyTRj1P7O5dE0OD_EygN2n1N006tVqc" />
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        :root {
+            --bg-color: #f9f9f9;
+            --text-color: #333;
+            --nav-bg-color: #333;
+            --nav-text-color: white;
+            --header-bg-color: #4CAF50;
+            --header-text-color: white;
+            --button-bg-color: #4CAF50;
+            --button-text-color: white;
+            --loader-color: #4CAF50; /* Loader color */
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #1e1e1e;
+                --text-color: #f9f9f9;
+                --nav-bg-color: #222;
+                --nav-text-color: #ddd;
+                --header-bg-color: #45a049;
+                --header-text-color: #f9f9f9;
+                --button-bg-color: #45a049;
+                --button-text-color: #f9f9f9;
+                --loader-color: #45a049; /* Dark mode loader color */
+            }
+        }
+
+        .container {
+            width: 80%;
+            max-width: 1600px;
+            margin: 0 center;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--header-bg-color);
+            color: var(--header-text-color);
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            margin-left: 15px; /* Space between image and text */
+        }
+
+        header img {
+            height: 60px; /* Adjust the height as needed */
+            width: auto;
+            border-radius: 10px;
+        }
+
+        /* Navigation Styles */
+        nav {
+            background-color: var(--nav-bg-color);
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav a {
+            color: var(--nav-text-color);
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Content Styles */
+        main {
+            padding: 20px 0;
+        }
+
+        main h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        main img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        main button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: var(--button-bg-color);
+            color: var(--button-text-color);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        main button:hover {
+            opacity: 0.9;
+        }
+
+        main p {
+            text-align: center;
+            font-size: 1.1rem;
+            margin: 10px 0;
+        }
+
+        /* New Loader Style - Pulse Animation */
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: var(--bg-color);
+        }
+
+        .pulse-loader {
+            width: 60px;
+            height: 60px;
+            background-color: var(--loader-color);
+            border-radius: 50%;
+            animation: pulse 1.5s infinite ease-in-out;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(0.8);
+                opacity: 0.7;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(0.8);
+                opacity: 0.7;
+            }
+        }
+
+        .content {
+            display: none; /* Hidden until loaded */
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: var(--nav-bg-color);
+            color: var(--nav-text-color);
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+
+        footer a {
+            color: var(--nav-text-color);
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            nav a {
+                display: block;
+                margin: 10px 0;
+            }
+
+            main h2 {
+                font-size: 1.5rem;
+            }
+
+            main p {
+                font-size: 1rem;
+            }
+
+            .header-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            header h1 {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+        }.search-container {
+        display: flex;
+        align-items: center;
+        background-color: #fff;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .search-input {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px ;
+        outline: none;
+        width: 300px;
+        }
+        .search-button {
+        padding: 10px 20px;
+        border: none;
+        background-color: #007BFF;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        }
+        .search-button:hover {
+        background-color: #0056b3;
+        }.container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 15px;
+        }
+
+        .quad-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1px;
+        margin-bottom: 20px;
+        }
+
+        .grid-item {
+        background-color: auto;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        aspect-ratio: 1/1; /* Makes items square */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        }
+
+        .image-placeholder {
+        height: 100%;
+        background-color: #e0e0e0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #999;
+        font-size: 14px;
+        }
+
+        .item-content {
+        padding: 10px;
+        }
+
+        .item-content h3 {
+        margin: 0;
+        font-size: 16px;
+        }
+
+        .item-content p {
+        margin: 5px 0 0 0;
+        font-size: 14px;
+        color: #666;
+        }.side-menu {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #333;
+        overflow-x: hidden;
+        transition: 0.3s;
+        padding-top: 60px;
+        }
+
+        .side-menu a {
+        padding: 15px 25px;
+        text-decoration: none;
+        font-size: 18px;
+        color: white;
+        display: block;
+        transition: 0.2s;
+        }
+
+        .side-menu a:hover {
+        background-color: white;
+        }
+
+        .menu-btn {
+        font-size: 30px;
+        cursor: pointer;
+        position: fixed;
+        left: 20px;
+        top: 20px;
+        z-index: 2;
+        color: #333;
+        }
+
+        .content {
+        padding: 20px;
+        margin-left: 0;
+        transition: margin-left 0.3s;
+        }
+
+        .close-btn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+        color: white;
+        cursor: pointer;
+        }
+
+        /* Show content margin when menu is open */
+        .menu-open {
+        margin-left: 250px;
+        }
+
+        @media screen and (max-height: 450px) {
+        .side-menu {padding-top: 15px;}
+        .side-menu a {font-size: 18px;}
+        }
+        </style>
+    </style>
+</head>
+<body>
+    <!-- Loading Effect -->
+    <div class="loading">
+        <div class="pulse-loader"></div>
+    </div>
+
+    <!-- Content (Hidden until loaded) -->
+    <div class="content">
+        <!-- Header -->
+        <main>
+            <div class="container">
+                <div class="header-content">
+                    <img src="https://github.com/9004582714/Image/blob/1cb9eb52887d5cfbb48afc579fa2b4f15a3eec57/IMG-20250305-WA0007.jpg?raw=true" alt="GitHub Image" width="80">
+                    <h2>ख्रिस्त वाणी | Khrist Vaani</h2>
+                </div></header><!-- Toggle Button -->
+                <span class="menu-btn" onclick="toggleMenu()">☰</span>
+
+                <!-- Side Menu -->
+                <div id="sideMenu" class="side-menu">
+                <a href="javascript:void(0)" class="close-btn" onclick="toggleMenu()">&times;</a>
+                <a href="https://youtube.com/@khristvaani?si=l18tvo05xpJokKV1">Home</a>
+                <a href="https://youtu.be/XQFz5gRxSNk?si=FCrJGEISOSZuETGn">About</a>
+                <a href="#">Services</a>
+                </div>
+            </div>
+          <hr>
+
+
+
+       </nav>
+
+        <!-- Main Content -->
+        <main>
+            <div class="container">
+                <h2><u>तुज विण ख्रिस्ता नासावेत प्राण</u></h2>
+                <img src="https://i.ytimg.com/vi/cecfljwSiw0/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLBstZBC1GWNZ9RAs1qHc6nvqwzBnQ" alt="GitHub Image" width="500">
+                <br>
+                <button><a href="https://youtu.be/cecfljwSiw0?si=Aw-4IQiyKnBm2PMO" style="color: var(--button-text-color); text-decoration: none;">For Video Click Here</a></button>
+                <br>
+                <h2><u>तुज विण ख्रिस्ता नासावेत प्राण</u></h2>
+                <p>तुज विण ख्रिस्ता नासावेत प्राण</p>
+                <p>तुज विण आयुष्य हे जगावे मरण || ध्रु ||</p>
+                <br>
+                <p>सौंसाराचा चिंता जरी मज गाठी</p>
+                <p>घेऊनी या क्रूस खांब आलो तुज पाठी</p>
+                <p>प्रभु भार वाही हिच रे अपेक्षा ||१||</p>
+                <br>
+                <p>वचनाला तुझ्या मी हृदयी भरावे</p>
+                <p>त्याच मार्गी चालुनिया तुज मी पहावे</p>
+                <p>शांति लाभे आता प्रभु चरणाशी ||२||</p>
+                <h2><u>Tuj vin khrista nasavet praan</u></h2>
+                <p>Tuj vin khrista nasavet praan</p>
+                <p>Tuj vina aayushya hai jagave maran || ध्रु ||</p>
+                <br>
+                <p>saunsaracha chinta jari maj gathi</p>
+                <p>Gheuniya krus khamb aalo tuj pathi</p>
+                <p>Prabhu bhaar vahi hech re apeksha ||१||</p>
+                <br>
+                <p>Vachnala tuzya me hrudayi bharave</p>
+                <p>Tyach margi chaluniya tuj me pahave</p>
+                <p>Shanti labhe ata prabhu charnashi ||२||</p>
+            </div>
+           <hr>
+         <div class="container">
+         <div class="quad-grid">
+         <!-- Item 1 -->
+         <div class="grid-item">
+         <div class="image-placeholder">Sodile</div>
+         <img src="https://github.com/9004582714/Image/blob/3e992558b18df0cd25250f98cc3eb920921a5f77/IMG-202503.jpg?raw=true" alt="GitHub Image" width="500">
+         <div class="item-content">
+         <h3>Get Lyrics</h3>
+         </div>
+         </div>
+
+         <!-- Item 2 -->
+         <div class="grid-item">
+         <div class="image-placeholder">Mala nako kunache</div>
+         <img src="https://github.com/9004582714/Image/blob/3e992558b18df0cd25250f98cc3eb920921a5f77/IMG-202503.jpg?raw=true" alt="GitHub Image" width="500">
+         <div class="item-content">
+         <h3>Get Lyrics</h3>
+         </div>
+         </div>
+
+         <!-- Item 3 -->
+         <div class="grid-item">
+         <div class="image-placeholder">tere bin</div>
+         <img src="https://github.com/9004582714/Image/blob/3e992558b18df0cd25250f98cc3eb920921a5f77/IMG-202503.jpg?raw=true" alt="GitHub Image" width="500">
+         <div class="item-content">
+         <h3>Get Lyrics</h3>
+         </div>
+         </div>
+
+         <!-- Item 4 -->
+         <div class="grid-item">
+         <div class="image-placeholder">dhanywad ke saath</div>
+         <img src="https://github.com/9004582714/Image/blob/3e992558b18df0cd25250f98cc3eb920921a5f77/IMG-202503.jpg?raw=true" alt="GitHub Image" width="500">
+         <div class="item-content">
+         <h3>Get Lyrics</h3>
+         </div>
+         </div>
+         </div>
+         </div>
+          <hr>
+        </main>
+        <!-- Footer -->
+        <footer>
+            <div
+                <p>&copy; 2025 ख्रिस्त वाणी | Khrist Vaani. All rights reserved.</p>
+                <a href="https://youtube.com/@khristvaani?si=l18tvo05xpJokKV1">YouTube</a>
+                <a href="mailto:bankaranand24@gmail.com?subject=Contact%20from%20Khrist%20Vani&body=Hello%20Khrist%20Vani%20Team,">Email</a>
+                <a href="tel:9004582714">Contact Us</a>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- JavaScript to Simulate Loading -->
+    <script>
+        // Simulate content loading
+        setTimeout(() => {
+            document.querySelector('.loading').style.display = 'none';
+            document.querySelector('.content').style.display = 'block';
+        }, 2000); // 2 seconds delay for demonstration
+    </script>
+    <script>
+    function toggleMenu() {
+    const sideMenu = document.getElementById("sideMenu");
+    const mainContent = document.getElementById("mainContent");
+
+    if (sideMenu.style.width === "250px") {
+    sideMenu.style.width = "0";
+    mainContent.classList.remove("menu-open");
+    } else {
+    sideMenu.style.width = "250px";
+    mainContent.classList.add("menu-open");
+    }
+    }
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+    const sideMenu = document.getElementById("sideMenu");
+    const menuBtn = document.querySelector('.menu-btn');
+
+    if (!sideMenu.contains(event.target) &&
+    !menuBtn.contains(event.target) &&
+    sideMenu.style.width === "250px") {
+    toggleMenu();
+    }
+    });
+    </script>
+</body>
+</html>
